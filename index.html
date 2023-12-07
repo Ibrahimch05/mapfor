@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+
+    <script>
+    // Création d'un tableau d'objets représentant des produits avec leurs quantités et prix
+const produits = [
+  { nom: 'Produit A', quantite: 3, prix: 20.99 },
+  { nom: 'Produit B', quantite: 4, prix: 10.5 },
+  { nom: 'Produit C', quantite: 5, prix: 5.75 },
+  { nom: 'Produit D', quantite: 7, prix: 15.25 }
+];
+
+// Mise à jour des quantités spécifiques pour chaque produit
+produits.forEach(function(produit) {
+  switch (produit.nom) {
+    case 'Produit A':
+      produit.quantite = 3;
+      break;
+    case 'Produit B':
+      produit.quantite = 4;
+      break;
+    case 'Produit C':
+      produit.quantite = 5;
+      break;
+    case 'Produit D':
+      produit.quantite = 7;
+      break;
+    default:
+      break;
+  }
+  produit.prix = produit.quantite * produit.prix; // Recalcul du prix en fonction de la nouvelle quantité
+});
+
+// Calcul du prix total de tous les produits
+const prixTotal = produits.reduce((total, produit) => total + produit.prix, 0);
+
+// Affichage des informations mises à jour des produits
+produits.forEach(function(produit) {
+  console.log(`Nom: ${produit.nom} - Quantité: ${produit.quantite} - Prix: ${produit.prix.toFixed(2)}`);
+});
+
+console.log(`Prix total de tous les produits: ${prixTotal.toFixed(2)}`);
+
+
+    </script>
+</body>
+
+</html>
